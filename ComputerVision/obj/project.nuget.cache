@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "JSE/UF58nr0=",
+  "success": true,
+  "projectFilePath": "C:\\Gartner\\Learning\\ComputerVision\\ComputerVision.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\absahai\\.nuget\\packages\\azure.ai.vision.imageanalysis\\1.0.0\\azure.ai.vision.imageanalysis.1.0.0.nupkg.sha512",
+    "C:\\Users\\absahai\\.nuget\\packages\\azure.core\\1.44.1\\azure.core.1.44.1.nupkg.sha512",
+    "C:\\Users\\absahai\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
+    "C:\\Users\\absahai\\.nuget\\packages\\system.clientmodel\\1.2.1\\system.clientmodel.1.2.1.nupkg.sha512",
+    "C:\\Users\\absahai\\.nuget\\packages\\system.memory.data\\6.0.0\\system.memory.data.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,14 @@
+C:\Gartner\Learning\ContentSafety\ContentSafety\bin\Debug\net10.0\ContentSafety.exe
+C:\Gartner\Learning\ContentSafety\ContentSafety\bin\Debug\net10.0\ContentSafety.deps.json
+C:\Gartner\Learning\ContentSafety\ContentSafety\bin\Debug\net10.0\ContentSafety.runtimeconfig.json
+C:\Gartner\Learning\ContentSafety\ContentSafety\bin\Debug\net10.0\ContentSafety.dll
+C:\Gartner\Learning\ContentSafety\ContentSafety\bin\Debug\net10.0\ContentSafety.pdb
+C:\Gartner\Learning\ContentSafety\ContentSafety\obj\Debug\net10.0\ContentSafety.GeneratedMSBuildEditorConfig.editorconfig
+C:\Gartner\Learning\ContentSafety\ContentSafety\obj\Debug\net10.0\ContentSafety.AssemblyInfoInputs.cache
+C:\Gartner\Learning\ContentSafety\ContentSafety\obj\Debug\net10.0\ContentSafety.AssemblyInfo.cs
+C:\Gartner\Learning\ContentSafety\ContentSafety\obj\Debug\net10.0\ContentSafety.csproj.CoreCompileInputs.cache
+C:\Gartner\Learning\ContentSafety\ContentSafety\obj\Debug\net10.0\ContentSafety.dll
+C:\Gartner\Learning\ContentSafety\ContentSafety\obj\Debug\net10.0\refint\ContentSafety.dll
+C:\Gartner\Learning\ContentSafety\ContentSafety\obj\Debug\net10.0\ContentSafety.pdb
+C:\Gartner\Learning\ContentSafety\ContentSafety\obj\Debug\net10.0\ContentSafety.genruntimeconfig.cache
+C:\Gartner\Learning\ContentSafety\ContentSafety\obj\Debug\net10.0\ref\ContentSafety.dll

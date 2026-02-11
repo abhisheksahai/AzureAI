@@ -1,0 +1,58 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Gartner\\Learning\\AI.Cognitive.Services\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{45ABFC5B-81EB-35E4-FC48-778A4EABFAB5}|AI.Cognitive.Services\\AI.Cognitive.Services.csproj|c:\\gartner\\learning\\ai.cognitive.services\\ai.cognitive.services\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{45ABFC5B-81EB-35E4-FC48-778A4EABFAB5}|AI.Cognitive.Services\\AI.Cognitive.Services.csproj|solutionrelative:ai.cognitive.services\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{45ABFC5B-81EB-35E4-FC48-778A4EABFAB5}|AI.Cognitive.Services\\AI.Cognitive.Services.csproj|c:\\gartner\\learning\\ai.cognitive.services\\ai.cognitive.services\\ai.cognitive.services.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{45ABFC5B-81EB-35E4-FC48-778A4EABFAB5}|AI.Cognitive.Services\\AI.Cognitive.Services.csproj|solutionrelative:ai.cognitive.services\\ai.cognitive.services.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AI.Cognitive.Services.csproj",
+              "DocumentMoniker": "C:\\Gartner\\Learning\\AI.Cognitive.Services\\AI.Cognitive.Services\\AI.Cognitive.Services.csproj",
+              "RelativeDocumentMoniker": "AI.Cognitive.Services\\AI.Cognitive.Services.csproj",
+              "ToolTip": "C:\\Gartner\\Learning\\AI.Cognitive.Services\\AI.Cognitive.Services\\AI.Cognitive.Services.csproj",
+              "RelativeToolTip": "AI.Cognitive.Services\\AI.Cognitive.Services.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-02-02T12:10:19.441Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Gartner\\Learning\\AI.Cognitive.Services\\AI.Cognitive.Services\\Program.cs",
+              "RelativeDocumentMoniker": "AI.Cognitive.Services\\Program.cs",
+              "ToolTip": "C:\\Gartner\\Learning\\AI.Cognitive.Services\\AI.Cognitive.Services\\Program.cs",
+              "RelativeToolTip": "AI.Cognitive.Services\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-25T12:23:44.459Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

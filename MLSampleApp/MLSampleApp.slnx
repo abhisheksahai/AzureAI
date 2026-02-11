@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="MLSampleApp.ConsoleApp/MLSampleApp.ConsoleApp.csproj" />
+  <Project Path="PredictiveModel.API/PredictiveModel.API.csproj" />
+</Solution>

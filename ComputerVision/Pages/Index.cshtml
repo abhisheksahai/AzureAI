@@ -1,0 +1,52 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Azure AI Vision Demo";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Azure AI Vision Demo</h1>
+    <p>An intelligent app to analyze images and generate captions</p>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <form method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label asp-for="Input.Image">Upload Image</label>
+                <input asp-for="Input.Image" class="form-control-file" accept="image/*" />
+                <small class="form-text text-muted">Supported formats: JPEG, PNG, GIF, BMP (Max 10MB)</small>
+            </div>
+            <button type="submit" class="btn btn-primary mt-2">Analyze Image</button>
+        </form>
+
+        @if (!string.IsNullOrEmpty(Model.Input.ErrorMessage))
+        {
+            <div class="alert alert-danger mt-3" role="alert">
+                <strong>Error:</strong> @Model.Input.ErrorMessage
+            </div>
+        }
+    </div>
+    <div class="col-md-6">
+        @if (!string.IsNullOrEmpty(Model.Input.ImageData))
+        {
+            <div class="card">
+                <img src="data:image/png;base64,@Model.Input.ImageData" class="card-img-top" alt="Uploaded Image" />
+                @if (!string.IsNullOrEmpty(Model.Input.ImageCaption))
+                {
+                    <div class="card-body">
+                        <h5 class="card-title">Analysis Result</h5>
+                        <p class="card-text"><strong>Caption:</strong> @Model.Input.ImageCaption</p>
+                        @if (Model.Input.Confidence.HasValue)
+                        {
+                            <p class="card-text">
+                                <strong>Confidence:</strong>
+                                <span class="badge bg-success">@((Model.Input.Confidence.Value * 100).ToString("F1"))%</span>
+                            </p>
+                        }
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>
