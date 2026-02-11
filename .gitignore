@@ -6,3 +6,4 @@
 # The packages folder can be ignored because of Package Restore
 !**/[Pp]ackages/*
 **/[Pp]ackages/*
+/DocumentAnalysis/wwwroot/lib
