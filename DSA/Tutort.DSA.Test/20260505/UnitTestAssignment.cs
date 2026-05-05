@@ -27,7 +27,7 @@
 		[TestCase(10, 21, ExpectedResult = false)]
 		[TestCase(15, 5, ExpectedResult = false)]
 		[TestCase(20, 25, ExpectedResult = true)]
-		public bool CoupleIsEligibleForMarriage_PrintsTrueOrFalse(int girlAge, int boyAge)
+		public bool CoupleIsEligibleForMarriage_PrintsBoolean(int girlAge, int boyAge)
 		{
 			bool result = _assignment.CoupleIsEligibleForMarriage(girlAge, boyAge);
 			Console.WriteLine($"{girlAge}-{boyAge}-{result}");
@@ -36,11 +36,19 @@
 
 		[TestCase(500000, ExpectedResult = 5000)]
 		[TestCase(100, ExpectedResult = 5)]
-		public double PrintTaxAmount(int amount)
+		public double PrintTaxAmountReturnsTax(int amount)
 		{
 			double result = _assignment.PrintTaxAmount(amount);
 			Console.WriteLine(result);
 			return result;
+		}
+
+		[TestCase(2024, ExpectedResult = true)]
+		[TestCase(200, ExpectedResult = false)]
+		[TestCase(2028, ExpectedResult = true)]
+		public bool IsLeapYear_ReturnsBoolean(int year)
+		{
+			return _assignment.IsLeapYear(year);
 		}
 	}
 }
