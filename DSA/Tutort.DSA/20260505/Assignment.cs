@@ -25,5 +25,10 @@
 		{
 			return (amount >= 500000) ? amount * .01 : amount * 0.05;
 		}
+
+		public bool IsLeapYear(int year)
+		{
+			return false;
+		}
 	}
 }
