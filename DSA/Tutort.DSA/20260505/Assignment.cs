@@ -15,5 +15,10 @@
 			}
 			return result;
 		}
+
+		public bool CoupleIsEligibleForMarriage(int girlAge, int boyAge)
+		{
+			return (girlAge >= 18 && boyAge >= 21) ? true : false;
+		}
 	}
 }
