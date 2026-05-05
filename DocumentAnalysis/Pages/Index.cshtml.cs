@@ -24,6 +24,9 @@ public class IndexModel : PageModel
     {
         stringe endpoint="https://azure-ai-documentintelligence.cognitiveservices.azure.com/";
         string key="EuirCu05iY4oCfNb0Jq6vpJQEWJJhR8OPnFiatg6fXMTsBQlLGSqJQQJ99CBACYeBjFXJ3w3AAALACOG01ed";
+        var credentials = new AzureKeyCredential(key);
+        var client = new DocumentAnalysisClient(new Uri(endpoint), credentials);
+
         return RedirectToPage("Success");
     }
 }
