@@ -1,4 +1,6 @@
-﻿namespace Tutort.DSA
+﻿using Tutort.DSA.Utils;
+
+namespace Tutort.DSA
 {
 	public class Assignment
 	{
@@ -29,6 +31,11 @@
 		public bool IsLeapYear(int year)
 		{
 			return (year % 4 == 0) && (year % 100 != 0 || year % 400 == 0);
+		}
+
+		public NumberType GetNumberType(int number)
+		{
+			return (number % 2) == 0 ? NumberType.Even : NumberType.Odd;
 		}
 	}
 }

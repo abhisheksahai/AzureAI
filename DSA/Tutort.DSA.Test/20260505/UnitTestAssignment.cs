@@ -1,4 +1,6 @@
-﻿namespace Tutort.DSA.Test
+﻿using Tutort.DSA.Utils;
+
+namespace Tutort.DSA.Test
 {
 	public class UnitTestAssignment
 	{
@@ -48,7 +50,21 @@
 		[TestCase(2028, ExpectedResult = true)]
 		public bool IsLeapYear_ReturnsBoolean(int year)
 		{
-			return _assignment.IsLeapYear(year);
+			var result = _assignment.IsLeapYear(year);
+			Console.WriteLine(result);
+			return result;
+		}
+
+
+		[TestCase(2, ExpectedResult = NumberType.Even)]
+		[TestCase(20, ExpectedResult = NumberType.Even)]
+		[TestCase(3, ExpectedResult = NumberType.Odd)]
+		[TestCase(33, ExpectedResult = NumberType.Odd)]
+		public NumberType GetNumberType_ReturnsType(int number)
+		{
+			var result = _assignment.GetNumberType(number);
+			Console.WriteLine(result);
+			return result;
 		}
 	}
 }
