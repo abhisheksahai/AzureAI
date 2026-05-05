@@ -27,10 +27,19 @@
 		[TestCase(10, 21, ExpectedResult = false)]
 		[TestCase(15, 5, ExpectedResult = false)]
 		[TestCase(20, 25, ExpectedResult = true)]
-		public bool CoupleIsEligibleForMarriage_PrintsYesOrNo(int girlAge, int boyAge)
+		public bool CoupleIsEligibleForMarriage_PrintsTrueOrFalse(int girlAge, int boyAge)
 		{
 			bool result = _assignment.CoupleIsEligibleForMarriage(girlAge, boyAge);
 			Console.WriteLine($"{girlAge}-{boyAge}-{result}");
+			return result;
+		}
+
+		[TestCase(500000, ExpectedResult = 5000)]
+		[TestCase(100, ExpectedResult = 5)]
+		public double PrintTaxAmount(int amount)
+		{
+			double result = _assignment.PrintTaxAmount(amount);
+			Console.WriteLine(result);
 			return result;
 		}
 	}

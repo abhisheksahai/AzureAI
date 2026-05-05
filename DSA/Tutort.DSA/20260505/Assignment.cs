@@ -20,5 +20,10 @@
 		{
 			return (girlAge >= 18 && boyAge >= 21) ? true : false;
 		}
+
+		public double PrintTaxAmount(double amount)
+		{
+			return (amount >= 500000) ? amount * .01 : amount * 0.05;
+		}
 	}
 }
