@@ -71,5 +71,11 @@ namespace Tutort.DSA.Test
 		{
 			_assignment.PrintTriangle(number);
 		}
+
+		[TestCase(5)]
+		public void PrintNumberSeriesReturnsVoid(int number)
+		{
+			_assignment.PrintNumberSeries(number);
+		}
 	}
 }

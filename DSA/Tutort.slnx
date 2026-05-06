@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="NOTES.md" />
+  </Folder>
   <Project Path="Tutort.DSA.Test/Tutort.DSA.Test.csproj" Id="46fb846d-c19e-4567-a32d-15f79966c261" />
   <Project Path="Tutort.DSA/Tutort.DSA.csproj" Id="8bd22f57-413b-4cdf-b4e3-0913413f2fac" />
 </Solution>
