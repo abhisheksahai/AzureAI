@@ -49,5 +49,33 @@ namespace Tutort.DSA
 				Console.WriteLine("");
 			}
 		}
+
+		public int PrintLargestOf3Numbers_1(int a, int b, int c)
+		{
+			return Math.Max(Math.Max(a, b), c);
+		}
+
+		public int PrintLargestOf3Numbers_2(int a, int b, int c)
+		{
+			int max = int.MinValue;
+			if (a > max)
+			{
+				max = a;
+			}
+			if (b > max)
+			{
+				max = b;
+			}
+			if (c > max)
+			{
+				max = c;
+			}
+			return max;
+		}
+
+		public int PrintLargestOf3Numbers_3(int a, int b, int c)
+		{
+			return (a > b && a > c) ? a : (b > a && b > c) ? b : c;
+		}
 	}
 }
