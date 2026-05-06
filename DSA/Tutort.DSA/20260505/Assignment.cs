@@ -37,5 +37,17 @@ namespace Tutort.DSA
 		{
 			return (number % 2) == 0 ? NumberType.Even : NumberType.Odd;
 		}
+
+		public void PrintTriangle(int size)
+		{
+			for (int i = 1; i <= size; i++)
+			{
+				for (int j = 1; j <= i; j++)
+				{
+					Console.Write("*");
+				}
+				Console.WriteLine("");
+			}
+		}
 	}
 }

@@ -55,7 +55,6 @@ namespace Tutort.DSA.Test
 			return result;
 		}
 
-
 		[TestCase(2, ExpectedResult = NumberType.Even)]
 		[TestCase(20, ExpectedResult = NumberType.Even)]
 		[TestCase(3, ExpectedResult = NumberType.Odd)]
@@ -65,6 +64,12 @@ namespace Tutort.DSA.Test
 			var result = _assignment.GetNumberType(number);
 			Console.WriteLine(result);
 			return result;
+		}
+
+		[TestCase(5)]
+		public void PrintTriangleReturnsVoid(int number)
+		{
+			_assignment.PrintTriangle(number);
 		}
 	}
 }
