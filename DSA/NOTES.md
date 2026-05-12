@@ -8,4 +8,5 @@
   int max = int.MinValue;
   int min = int.MaxValue;
 
-# Next
+# Array
+Continuous memmory allocated for a specific data type.Elements are accessed using an index.Fixed size can not grow or shrink.

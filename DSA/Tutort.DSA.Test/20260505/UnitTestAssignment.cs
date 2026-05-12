@@ -77,5 +77,12 @@ namespace Tutort.DSA.Test
 		{
 			_assignment.PrintNumberSeries(number);
 		}
+
+		[TestCase(new int[] { 4, 5, 6 }, new int[] { 1, 2, 3 })]
+		[TestCase(new int[] { 1, 2, 3 }, new int[] { 4, 5, 6 })]
+		public void MergeTwoArrays_ReturnsVoid(int[] arr1, int[] arr2)
+		{
+			_assignment.MergeTwoArrays(arr1, arr2);
+		}
 	}
 }

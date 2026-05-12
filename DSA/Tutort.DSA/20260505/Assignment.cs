@@ -91,5 +91,14 @@ namespace Tutort.DSA
 				Console.WriteLine("");
 			}
 		}
+
+
+		public void MergeTwoArrays(int[] arr1, int[] arr2)
+		{
+			int arr1Len = arr1.Length;
+			int arr2Len = arr2.Length;
+			int totalLen = arr1Len + arr2Len;
+			int[] mergedArr = new int[totalLen];
+		}
 	}
 }
