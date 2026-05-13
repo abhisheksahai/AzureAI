@@ -78,18 +78,18 @@ namespace Tutort.DSA.Test
 			_assignment.PrintNumberSeries(number);
 		}
 
-		[TestCase(new int[] { 4, 5, 6 }, new int[] { 1, 2, 3 })]
-		[TestCase(new int[] { 1, 2, 3 }, new int[] { 4, 5, 6 })]
-		public void MergeTwoArrays_ReturnsVoid_1(int[] arr1, int[] arr2)
+		[TestCase(new int[] { 4, 5, 6 }, new int[] { 1, 2, 3 }, ExpectedResult = new int[] { 1, 2, 3, 4, 5, 6 })]
+		[TestCase(new int[] { 1, 2, 3 }, new int[] { 4, 5, 6 }, ExpectedResult = new int[] { 1, 2, 3, 4, 5, 6 })]
+		public int[] MergeTwoArrays_ReturnsArray_1(int[] arr1, int[] arr2)
 		{
-			_assignment.MergeTwoSortedArrays_1(arr1, arr2);
+			return _assignment.MergeTwoSortedArrays_1(arr1, arr2);
 		}
 
-		[TestCase(new int[] { 4, 5, 6 }, new int[] { 1, 2, 3 })]
-		[TestCase(new int[] { 1, 2, 3 }, new int[] { 4, 5, 6 })]
-		public void MergeTwoArrays_ReturnsVoid_2(int[] arr1, int[] arr2)
+		[TestCase(new int[] { 4, 5, 6 }, new int[] { 1, 2, 3 }, ExpectedResult = new int[] { 1, 2, 3, 4, 5, 6 })]
+		[TestCase(new int[] { 1, 2, 3 }, new int[] { 4, 5, 6 }, ExpectedResult = new int[] { 1, 2, 3, 4, 5, 6 })]
+		public int[] MergeTwoArrays_ReturnsArray_2(int[] arr1, int[] arr2)
 		{
-			_assignment.MergeTwoSortedArrays_2(arr1, arr2);
+			return _assignment.MergeTwoSortedArrays_2(arr1, arr2);
 		}
 	}
 }
