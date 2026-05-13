@@ -93,21 +93,48 @@ namespace Tutort.DSA
 		}
 
 
-		public void MergeTwoArrays_1(int[] arr1, int[] arr2)
+		public void MergeTwoSortedArrays_1(int[] a, int[] b)
 		{
-			int arr1Len = arr1.Length;
-			int arr2Len = arr2.Length;
+			int arr1Len = a.Length;
+			int arr2Len = b.Length;
 			int totalLen = arr1Len + arr2Len;
 			int[] mergedArr = new int[totalLen];
 			for (int i = 0; i < arr1Len; i++)
 			{
-				mergedArr[i] = arr1[i];
+				mergedArr[i] = a[i];
 			}
-			for (int j = 0; j < arr2Len; j++)
+			for (int j = arr1Len; j < totalLen; j++)
 			{
-				mergedArr[totalLen - arr1Len + j] = arr2[j];
+				mergedArr[j] = b[j - arr1Len];
 			}
 			Array.Sort(mergedArr);
+		}
+
+		public void MergeTwoSortedArrays_2(int[] a, int[] b)
+		{
+			int l1 = a.Length;
+			int l2 = b.Length;
+			int[] c = new int[l1 + l2];
+			int i = 0, j = 0, k = 0;
+			while (i < l1 && j < l2)
+			{
+				if (a[i] < b[j])
+				{
+					c[k++] = a[i++];
+				}
+				else
+				{
+					c[k++] = b[j++];
+				}
+			}
+			while (i < l1)
+			{
+				c[k++] = a[i++];
+			}
+			while (j < l2)
+			{
+				c[k++] = b[j++];
+			}
 		}
 	}
 }

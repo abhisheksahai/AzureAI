@@ -80,9 +80,16 @@ namespace Tutort.DSA.Test
 
 		[TestCase(new int[] { 4, 5, 6 }, new int[] { 1, 2, 3 })]
 		[TestCase(new int[] { 1, 2, 3 }, new int[] { 4, 5, 6 })]
-		public void MergeTwoArrays_ReturnsVoid(int[] arr1, int[] arr2)
+		public void MergeTwoArrays_ReturnsVoid_1(int[] arr1, int[] arr2)
 		{
-			_assignment.MergeTwoArrays_1(arr1, arr2);
+			_assignment.MergeTwoSortedArrays_1(arr1, arr2);
+		}
+
+		[TestCase(new int[] { 4, 5, 6 }, new int[] { 1, 2, 3 })]
+		[TestCase(new int[] { 1, 2, 3 }, new int[] { 4, 5, 6 })]
+		public void MergeTwoArrays_ReturnsVoid_2(int[] arr1, int[] arr2)
+		{
+			_assignment.MergeTwoSortedArrays_2(arr1, arr2);
 		}
 	}
 }
