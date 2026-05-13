@@ -82,7 +82,7 @@ namespace Tutort.DSA.Test
 		[TestCase(new int[] { 1, 2, 3 }, new int[] { 4, 5, 6 })]
 		public void MergeTwoArrays_ReturnsVoid(int[] arr1, int[] arr2)
 		{
-			_assignment.MergeTwoArrays(arr1, arr2);
+			_assignment.MergeTwoArrays_1(arr1, arr2);
 		}
 	}
 }

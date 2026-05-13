@@ -93,12 +93,21 @@ namespace Tutort.DSA
 		}
 
 
-		public void MergeTwoArrays(int[] arr1, int[] arr2)
+		public void MergeTwoArrays_1(int[] arr1, int[] arr2)
 		{
 			int arr1Len = arr1.Length;
 			int arr2Len = arr2.Length;
 			int totalLen = arr1Len + arr2Len;
 			int[] mergedArr = new int[totalLen];
+			for (int i = 0; i < arr1Len; i++)
+			{
+				mergedArr[i] = arr1[i];
+			}
+			for (int j = 0; j < arr2Len; j++)
+			{
+				mergedArr[totalLen - arr1Len + j] = arr2[j];
+			}
+			Array.Sort(mergedArr);
 		}
 	}
 }
