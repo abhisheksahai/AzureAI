@@ -10,3 +10,6 @@
 
 # Array
 Continuous memmory allocated for a specific data type.Elements are accessed using an index.Fixed size can not grow or shrink.
+
+# BEDMAS 
+Brackets, Exponential, Division, Multiplication, Addition, Subtraction

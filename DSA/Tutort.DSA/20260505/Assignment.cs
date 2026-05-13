@@ -138,5 +138,32 @@ namespace Tutort.DSA
 			}
 			return c;
 		}
+
+		public IList<string> FizzBuzz(int n)
+		{
+			string[] c = new string[n];
+			for (int i = 1; i <= n; i++)
+			{
+				bool divBy3 = (i % 3 == 0);
+				bool divBy5 = (i % 5 == 0);
+				if (divBy3 && divBy5)
+				{
+					c[i - 1] = "FizzBuzz";
+				}
+				else if (divBy3)
+				{
+					c[i - 1] = "Fizz";
+				}
+				else if (divBy5)
+				{
+					c[i - 1] = "Buzz";
+				}
+				else
+				{
+					c[i - 1] = Convert.ToString(i);
+				}
+			}
+			return new List<string>(c);
+		}
 	}
 }
