@@ -91,5 +91,13 @@ namespace Tutort.DSA.Test
 		{
 			return _assignment.MergeTwoSortedArrays_2(arr1, arr2);
 		}
+
+
+		[TestCase(-10, 100, 0, ExpectedResult = 0)]
+		[TestCase(10, 20, 30, ExpectedResult = 20)]
+		public int MidElementOutOfThree_ReturnsInt(int a, int b, int c)
+		{
+			return _assignment.MidElementOutOfThree(a, b, c);
+		}
 	}
 }
