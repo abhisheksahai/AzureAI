@@ -178,5 +178,64 @@ namespace Tutort.DSA
 			}
 			return c;
 		}
+
+		public void PrintAscendingNumberSeries(int n)
+		{
+			for (int i = 1; i <= n; i++)
+			{
+				for (int j = 1; j <= i; j++)
+				{
+					Console.Write($"{j} ");
+				}
+				Console.WriteLine("");
+			}
+		}
+
+		public void PrintDescendingNumberSeries(int n)
+		{
+			for (int i = n; i >= 1; i--)
+			{
+				for (int j = 1; j <= i; j++)
+				{
+					Console.Write($"{j} ");
+				}
+				Console.WriteLine("");
+			}
+		}
+
+		public int[] ReturnOddElementsFromArray(int[] num)
+		{
+			List<int> list = new List<int>();
+			foreach (int n in num)
+			{
+				if (n % 2 != 0)
+				{
+					list.Add(n);
+				}
+			}
+			return list.ToArray();
+		}
+
+		public int ReturnSumOfElementsInArray(int[] num)
+		{
+			int sum = 0;
+			foreach (int n in num)
+			{
+				sum += n;
+			}
+			return sum;
+		}
+
+		public int FindEvenNumbersinArray(int[] num)
+		{
+			foreach (int n in num)
+			{
+				if (n % 2 == 0)
+				{
+					return n;
+				}
+			}
+			return -1;
+		}
 	}
 }

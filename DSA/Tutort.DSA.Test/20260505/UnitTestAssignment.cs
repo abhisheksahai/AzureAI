@@ -99,5 +99,17 @@ namespace Tutort.DSA.Test
 		{
 			return _assignment.MidElementOutOfThree(a, b, c);
 		}
+
+		[TestCase(5)]
+		public void PrintAscendingNumberSeries_ReturnsVoid(int number)
+		{
+			_assignment.PrintAscendingNumberSeries(number);
+		}
+
+		[TestCase(5)]
+		public void PrintDescendingNumberSeries_ReturnsVoid(int number)
+		{
+			_assignment.PrintDescendingNumberSeries(number);
+		}
 	}
 }
