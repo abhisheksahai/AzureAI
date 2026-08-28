@@ -1,0 +1,5 @@
+{
+  "AzureOpenAI": {
+	"ApiKey": "PASTE_YOUR_REAL_API_KEY_HERE"
+  }
+}

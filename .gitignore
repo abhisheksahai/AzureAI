@@ -7,3 +7,14 @@
 !**/[Pp]ackages/*
 **/[Pp]ackages/*
 /DocumentAnalysis/wwwroot/lib
+
+# Local secrets / API keys - never commit
+appsettings.local.json
+**/appsettings.local.json
+appsettings.*.local.json
+**/appsettings.*.local.json
+# Allow example/template files to be committed
+!**/appsettings.local.json.example
+
+# Visual Studio upgrade logs
+UpgradeLog*.htm

@@ -1,0 +1,63 @@
+using Azure.AI.OpenAI;
+using Azure.OpenAI.Chat;
+using Azure.OpenAI.Configuration;
+using OpenAI.Chat;
+
+namespace Azure.OpenAI.Test
+{
+	public class ChatServiceTests
+	{
+		private AzureOpenAISettings _settings = null!;
+
+		[SetUp]
+		public void Setup()
+		{
+			_settings = AzureOpenAIConfiguration.Load();
+		}
+
+		[Test]
+		public void Constructor_NullClient_Throws()
+		{
+			Assert.Throws<ArgumentNullException>(() => new ChatService(null!, "gpt-4.1"));
+		}
+
+		[Test]
+		public void Constructor_EmptyDeploymentName_Throws()
+		{
+			AzureOpenAIClient client = AzureOpenAIClientFactory.Create(new AzureOpenAISettings
+			{
+				Endpoint = "https://example.openai.azure.com/",
+				ApiKey = "key",
+			});
+
+			Assert.Throws<ArgumentException>(() => new ChatService(client, string.Empty));
+		}
+
+		[Test]
+		public void DefaultOptions_HasExpectedValues()
+		{
+			ChatCompletionOptions options = ChatService.DefaultOptions;
+
+			Assert.That(options.Temperature, Is.EqualTo(0.7f));
+			Assert.That(options.MaxOutputTokenCount, Is.EqualTo(1000));
+		}
+
+		[Test]
+		[Explicit("Integration test - requires a valid Azure OpenAI API key in appsettings.json.")]
+		public void CompleteChat_ReturnsResponse()
+		{
+			AzureOpenAIClient client = AzureOpenAIClientFactory.Create(_settings);
+			IChatService chatService = new ChatService(client, _settings.ChatDeploymentName);
+
+			List<ChatMessage> messages = new()
+			{
+				new SystemChatMessage("You are a helpful assistant."),
+				new UserChatMessage("Say hello in one word."),
+			};
+
+			string response = chatService.CompleteChat(messages);
+
+			Assert.That(response, Is.Not.Empty);
+		}
+	}
+}
