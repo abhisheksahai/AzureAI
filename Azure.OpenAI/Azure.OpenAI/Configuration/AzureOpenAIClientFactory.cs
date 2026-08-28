@@ -36,9 +36,34 @@ namespace Azure.OpenAI.Configuration
 				throw new InvalidOperationException("Azure OpenAI API key is not configured.");
 			}
 
+			AzureOpenAIClientOptions options = new();
+			if (!string.IsNullOrWhiteSpace(settings.ApiVersion))
+			{
+				options = new AzureOpenAIClientOptions(ParseServiceVersion(settings.ApiVersion));
+			}
+
 			return new AzureOpenAIClient(
 				new Uri(settings.Endpoint),
-				new AzureKeyCredential(settings.ApiKey));
+				new AzureKeyCredential(settings.ApiKey),
+				options);
+		}
+
+		/// <summary>
+		/// Maps an Azure OpenAI REST api-version string (e.g. "2025-01-01-preview")
+		/// to the SDK's <see cref="AzureOpenAIClientOptions.ServiceVersion"/> enum.
+		/// </summary>
+		private static AzureOpenAIClientOptions.ServiceVersion ParseServiceVersion(string apiVersion)
+		{
+			// "2025-01-01-preview" -> "V2025_01_01_preview" (matched case-insensitively).
+			string enumName = "V" + apiVersion.Replace("-", "_");
+
+			if (Enum.TryParse(enumName, ignoreCase: true, out AzureOpenAIClientOptions.ServiceVersion version))
+			{
+				return version;
+			}
+
+			throw new InvalidOperationException(
+				$"Unsupported Azure OpenAI api-version '{apiVersion}'. Expected a value like '2025-01-01-preview' that maps to a known ServiceVersion.");
 		}
 	}
 }

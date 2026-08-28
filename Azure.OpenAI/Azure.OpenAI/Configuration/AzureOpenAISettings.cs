@@ -24,5 +24,12 @@ namespace Azure.OpenAI.Configuration
 		public string ApiKey { get; set; } = string.Empty;
 
 		public string DeploymentName { get; set; } = string.Empty;
+
+		/// <summary>
+		/// Azure OpenAI REST API version, e.g. "2024-10-21".
+		/// Optional - when empty the SDK's default service version is used.
+		/// Supported values depend on the installed Azure.AI.OpenAI SDK version.
+		/// </summary>
+		public string ApiVersion { get; set; } = string.Empty;
 	}
 }

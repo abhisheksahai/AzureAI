@@ -47,5 +47,33 @@ namespace Azure.OpenAI.Test
 
 			Assert.Throws<InvalidOperationException>(() => AzureOpenAIClientFactory.Create(settings));
 		}
+
+		[Test]
+		public void CreateClient_WithApiVersion_Succeeds()
+		{
+			AzureOpenAIResourceSettings settings = new()
+			{
+				Endpoint = _settings.ChatCompletion.Endpoint,
+				ApiKey = _settings.ChatCompletion.ApiKey,
+				DeploymentName = _settings.ChatCompletion.DeploymentName,
+				ApiVersion = "2024-10-21",
+			};
+
+			Assert.That(AzureOpenAIClientFactory.Create(settings), Is.Not.Null);
+		}
+
+		[Test]
+		public void CreateClient_UnsupportedApiVersion_Throws()
+		{
+			AzureOpenAIResourceSettings settings = new()
+			{
+				Endpoint = _settings.ChatCompletion.Endpoint,
+				ApiKey = _settings.ChatCompletion.ApiKey,
+				DeploymentName = _settings.ChatCompletion.DeploymentName,
+				ApiVersion = "1999-01-01",
+			};
+
+			Assert.Throws<InvalidOperationException>(() => AzureOpenAIClientFactory.Create(settings));
+		}
 	}
 }
