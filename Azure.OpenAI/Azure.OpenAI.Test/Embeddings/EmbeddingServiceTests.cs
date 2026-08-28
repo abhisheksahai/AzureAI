@@ -78,7 +78,7 @@ namespace Azure.OpenAI.Test
 			IEmbeddingService service = new EmbeddingService(client, _settings.Embedding.DeploymentName);
 
 			const string firstText = "Hot";
-			const string secondText = "Cold";
+			const string secondText = "Warm";
 
 			IReadOnlyList<ReadOnlyMemory<float>> embeddings =
 				service.GenerateEmbeddings(new[] { firstText, secondText });
