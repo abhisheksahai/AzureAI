@@ -22,7 +22,7 @@ namespace Azure.OpenAI.Configuration
 
 	public static class AzureOpenAIClientFactory
 	{
-		public static AzureOpenAIClient Create(AzureOpenAISettings settings)
+		public static AzureOpenAIClient Create(AzureOpenAIResourceSettings settings)
 		{
 			ArgumentNullException.ThrowIfNull(settings);
 

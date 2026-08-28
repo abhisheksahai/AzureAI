@@ -24,7 +24,7 @@ namespace Azure.OpenAI.Test
 		[Test]
 		public void Constructor_EmptyDeploymentName_Throws()
 		{
-			AzureOpenAIClient client = AzureOpenAIClientFactory.Create(new AzureOpenAISettings
+			AzureOpenAIClient client = AzureOpenAIClientFactory.Create(new AzureOpenAIResourceSettings
 			{
 				Endpoint = "https://example.openai.azure.com/",
 				ApiKey = "key",
@@ -46,8 +46,8 @@ namespace Azure.OpenAI.Test
 		[Explicit("Integration test - requires a valid Azure OpenAI API key in appsettings.json.")]
 		public void CompleteChat_ReturnsResponse()
 		{
-			AzureOpenAIClient client = AzureOpenAIClientFactory.Create(_settings);
-			IChatService chatService = new ChatService(client, _settings.ChatDeploymentName);
+			AzureOpenAIClient client = AzureOpenAIClientFactory.Create(_settings.ChatCompletion);
+			IChatService chatService = new ChatService(client, _settings.ChatCompletion.DeploymentName);
 
 			List<ChatMessage> messages = new()
 			{

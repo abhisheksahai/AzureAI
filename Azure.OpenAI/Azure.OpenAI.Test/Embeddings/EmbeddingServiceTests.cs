@@ -23,7 +23,7 @@ namespace Azure.OpenAI.Test
 		[Test]
 		public void Constructor_EmptyDeploymentName_Throws()
 		{
-			AzureOpenAIClient client = AzureOpenAIClientFactory.Create(new AzureOpenAISettings
+			AzureOpenAIClient client = AzureOpenAIClientFactory.Create(new AzureOpenAIResourceSettings
 			{
 				Endpoint = "https://example.openai.azure.com/",
 				ApiKey = "key",
@@ -35,7 +35,7 @@ namespace Azure.OpenAI.Test
 		[Test]
 		public void GenerateEmbedding_EmptyInput_Throws()
 		{
-			AzureOpenAIClient client = AzureOpenAIClientFactory.Create(new AzureOpenAISettings
+			AzureOpenAIClient client = AzureOpenAIClientFactory.Create(new AzureOpenAIResourceSettings
 			{
 				Endpoint = "https://example.openai.azure.com/",
 				ApiKey = "key",
@@ -49,8 +49,8 @@ namespace Azure.OpenAI.Test
 		[Explicit("Integration test - requires a valid Azure OpenAI API key in appsettings.json.")]
 		public void GenerateEmbedding_ReturnsVector()
 		{
-			AzureOpenAIClient client = AzureOpenAIClientFactory.Create(_settings);
-			IEmbeddingService service = new EmbeddingService(client, _settings.EmbeddingDeploymentName);
+			AzureOpenAIClient client = AzureOpenAIClientFactory.Create(_settings.Embedding);
+			IEmbeddingService service = new EmbeddingService(client, _settings.Embedding.DeploymentName);
 
 			ReadOnlyMemory<float> vector = service.GenerateEmbedding("Azure OpenAI embeddings");
 

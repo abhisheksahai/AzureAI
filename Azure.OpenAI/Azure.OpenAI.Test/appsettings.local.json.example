@@ -1,5 +1,10 @@
-{
+﻿{
   "AzureOpenAI": {
-	"ApiKey": "PASTE_YOUR_REAL_API_KEY_HERE"
+    "ChatCompletion": {
+      "ApiKey": "PASTE_YOUR_REAL_CHAT_API_KEY_HERE"
+    },
+    "Embedding": {
+      "ApiKey": "PASTE_YOUR_REAL_EMBEDDING_API_KEY_HERE"
+    }
   }
 }

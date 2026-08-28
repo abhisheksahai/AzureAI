@@ -10,15 +10,16 @@ namespace Azure.OpenAI.Test
 			AzureOpenAISettings settings = AzureOpenAIConfiguration.Load();
 
 			Assert.That(settings, Is.Not.Null);
-			Assert.That(settings.Endpoint, Is.Not.Empty);
-			Assert.That(settings.ChatDeploymentName, Is.Not.Empty);
-			Assert.That(settings.EmbeddingDeploymentName, Is.Not.Empty);
+			Assert.That(settings.ChatCompletion.Endpoint, Is.Not.Empty);
+			Assert.That(settings.ChatCompletion.DeploymentName, Is.Not.Empty);
+			Assert.That(settings.Embedding.Endpoint, Is.Not.Empty);
+			Assert.That(settings.Embedding.DeploymentName, Is.Not.Empty);
 		}
 
 		[Test]
 		public void CreateClient_MissingEndpoint_Throws()
 		{
-			AzureOpenAISettings settings = new()
+			AzureOpenAIResourceSettings settings = new()
 			{
 				Endpoint = string.Empty,
 				ApiKey = "key",
@@ -30,7 +31,7 @@ namespace Azure.OpenAI.Test
 		[Test]
 		public void CreateClient_MissingApiKey_Throws()
 		{
-			AzureOpenAISettings settings = new()
+			AzureOpenAIResourceSettings settings = new()
 			{
 				Endpoint = "https://example.openai.azure.com/",
 				ApiKey = string.Empty,
