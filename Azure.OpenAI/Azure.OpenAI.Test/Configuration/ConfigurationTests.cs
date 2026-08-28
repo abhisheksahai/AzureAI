@@ -4,16 +4,22 @@ namespace Azure.OpenAI.Test
 {
 	public class ConfigurationTests
 	{
+		private AzureOpenAISettings _settings = null!;
+
+		[SetUp]
+		public void Setup()
+		{
+			_settings = AzureOpenAIConfiguration.Load();
+		}
+
 		[Test]
 		public void Load_BindsAzureOpenAISection()
 		{
-			AzureOpenAISettings settings = AzureOpenAIConfiguration.Load();
-
-			Assert.That(settings, Is.Not.Null);
-			Assert.That(settings.ChatCompletion.Endpoint, Is.Not.Empty);
-			Assert.That(settings.ChatCompletion.DeploymentName, Is.Not.Empty);
-			Assert.That(settings.Embedding.Endpoint, Is.Not.Empty);
-			Assert.That(settings.Embedding.DeploymentName, Is.Not.Empty);
+			Assert.That(_settings, Is.Not.Null);
+			Assert.That(_settings.ChatCompletion.Endpoint, Is.Not.Empty);
+			Assert.That(_settings.ChatCompletion.DeploymentName, Is.Not.Empty);
+			Assert.That(_settings.Embedding.Endpoint, Is.Not.Empty);
+			Assert.That(_settings.Embedding.DeploymentName, Is.Not.Empty);
 		}
 
 		[Test]
@@ -22,7 +28,8 @@ namespace Azure.OpenAI.Test
 			AzureOpenAIResourceSettings settings = new()
 			{
 				Endpoint = string.Empty,
-				ApiKey = "key",
+				ApiKey = _settings.ChatCompletion.ApiKey,
+				DeploymentName = _settings.ChatCompletion.DeploymentName,
 			};
 
 			Assert.Throws<InvalidOperationException>(() => AzureOpenAIClientFactory.Create(settings));
@@ -33,8 +40,9 @@ namespace Azure.OpenAI.Test
 		{
 			AzureOpenAIResourceSettings settings = new()
 			{
-				Endpoint = "https://example.openai.azure.com/",
+				Endpoint = _settings.ChatCompletion.Endpoint,
 				ApiKey = string.Empty,
+				DeploymentName = _settings.ChatCompletion.DeploymentName,
 			};
 
 			Assert.Throws<InvalidOperationException>(() => AzureOpenAIClientFactory.Create(settings));

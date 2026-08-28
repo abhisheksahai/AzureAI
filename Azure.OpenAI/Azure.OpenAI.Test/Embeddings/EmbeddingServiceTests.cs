@@ -17,17 +17,13 @@ namespace Azure.OpenAI.Test
 		[Test]
 		public void Constructor_NullClient_Throws()
 		{
-			Assert.Throws<ArgumentNullException>(() => new EmbeddingService(null!, "text-embedding-3-small"));
+			Assert.Throws<ArgumentNullException>(() => new EmbeddingService(null!, _settings.Embedding.DeploymentName));
 		}
 
 		[Test]
 		public void Constructor_EmptyDeploymentName_Throws()
 		{
-			AzureOpenAIClient client = AzureOpenAIClientFactory.Create(new AzureOpenAIResourceSettings
-			{
-				Endpoint = "https://example.openai.azure.com/",
-				ApiKey = "key",
-			});
+			AzureOpenAIClient client = AzureOpenAIClientFactory.Create(_settings.Embedding);
 
 			Assert.Throws<ArgumentException>(() => new EmbeddingService(client, string.Empty));
 		}
@@ -35,12 +31,8 @@ namespace Azure.OpenAI.Test
 		[Test]
 		public void GenerateEmbedding_EmptyInput_Throws()
 		{
-			AzureOpenAIClient client = AzureOpenAIClientFactory.Create(new AzureOpenAIResourceSettings
-			{
-				Endpoint = "https://example.openai.azure.com/",
-				ApiKey = "key",
-			});
-			IEmbeddingService service = new EmbeddingService(client, "text-embedding-3-small");
+			AzureOpenAIClient client = AzureOpenAIClientFactory.Create(_settings.Embedding);
+			IEmbeddingService service = new EmbeddingService(client, _settings.Embedding.DeploymentName);
 
 			Assert.Throws<ArgumentException>(() => service.GenerateEmbedding(string.Empty));
 		}

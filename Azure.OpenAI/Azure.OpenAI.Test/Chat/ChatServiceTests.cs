@@ -18,17 +18,13 @@ namespace Azure.OpenAI.Test
 		[Test]
 		public void Constructor_NullClient_Throws()
 		{
-			Assert.Throws<ArgumentNullException>(() => new ChatService(null!, "gpt-4.1"));
+			Assert.Throws<ArgumentNullException>(() => new ChatService(null!, _settings.ChatCompletion.DeploymentName));
 		}
 
 		[Test]
 		public void Constructor_EmptyDeploymentName_Throws()
 		{
-			AzureOpenAIClient client = AzureOpenAIClientFactory.Create(new AzureOpenAIResourceSettings
-			{
-				Endpoint = "https://example.openai.azure.com/",
-				ApiKey = "key",
-			});
+			AzureOpenAIClient client = AzureOpenAIClientFactory.Create(_settings.ChatCompletion);
 
 			Assert.Throws<ArgumentException>(() => new ChatService(client, string.Empty));
 		}
