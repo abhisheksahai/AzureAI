@@ -65,7 +65,7 @@ namespace Azure.OpenAI.Test
 
 			List<ChatMessage> messages = new()
 			{
-				new SystemChatMessage("You are a helpful assistant."),
+				new SystemChatMessage("You are a travel planner."),
 				new UserChatMessage("I am going to Paris, what should I see?"),
 			};
 
