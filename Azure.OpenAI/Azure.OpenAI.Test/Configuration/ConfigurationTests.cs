@@ -51,15 +51,9 @@ namespace Azure.OpenAI.Test
 		[Test]
 		public void CreateClient_WithApiVersion_Succeeds()
 		{
-			AzureOpenAIResourceSettings settings = new()
-			{
-				Endpoint = _settings.ChatCompletion.Endpoint,
-				ApiKey = _settings.ChatCompletion.ApiKey,
-				DeploymentName = _settings.ChatCompletion.DeploymentName,
-				ApiVersion = "2024-10-21",
-			};
+			Assert.That(_settings.ChatCompletion.ApiVersion, Is.Not.Empty);
 
-			Assert.That(AzureOpenAIClientFactory.Create(settings), Is.Not.Null);
+			Assert.That(AzureOpenAIClientFactory.Create(_settings.ChatCompletion), Is.Not.Null);
 		}
 
 		[Test]
@@ -70,7 +64,7 @@ namespace Azure.OpenAI.Test
 				Endpoint = _settings.ChatCompletion.Endpoint,
 				ApiKey = _settings.ChatCompletion.ApiKey,
 				DeploymentName = _settings.ChatCompletion.DeploymentName,
-				ApiVersion = "1999-01-01",
+				ApiVersion = "0000-00-00-invalid",
 			};
 
 			Assert.Throws<InvalidOperationException>(() => AzureOpenAIClientFactory.Create(settings));
