@@ -13,8 +13,6 @@ appsettings.local.json
 **/appsettings.local.json
 appsettings.*.local.json
 **/appsettings.*.local.json
-# Allow example/template files to be committed
-!**/appsettings.local.json.example
 
 # Visual Studio upgrade logs
 UpgradeLog*.htm
