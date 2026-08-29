@@ -55,7 +55,7 @@ namespace Azure.OpenAI.Test
 
 		[Test]
 		[Explicit("Integration test - requires a valid Whisper API key in appsettings.local.json and an audio file.")]
-		public void Transcribe_ReturnsTranscript()
+		public void Transcribe_ReturnsTranscriptSummary()
 		{
 			string audioFilePath = Path.Combine(TestContext.CurrentContext.TestDirectory, "Audio", "aws_lambda.mp3");
 			AzureOpenAIClient client = AzureOpenAIClientFactory.Create(_settings.Whisper);
@@ -67,7 +67,7 @@ namespace Azure.OpenAI.Test
 
 			List<ChatMessage> messages = new()
 			{
-				new SystemChatMessage("You are a transcript summary generator. Summarize the transcript provided by the user in 3 bullet points."),
+				new SystemChatMessage("You are a transcript summary generator. Summarize the transcript provided by the user in 2 bullet points."),
 				new UserChatMessage(transcript),
 			};
 			ChatCompletionOptions options = new()
@@ -82,5 +82,36 @@ namespace Azure.OpenAI.Test
 			TestContext.Out.WriteLine($"Summary: {response}");
 			Assert.That(transcript, Is.Not.Null.And.Not.Empty);
 		}
+
+		[Test]
+		[Explicit("Integration test - requires a valid Whisper API key in appsettings.local.json and an audio file.")]
+		public void Transcribe_ReturnsMCQFromAudio()
+		{
+			string audioFilePath = Path.Combine(TestContext.CurrentContext.TestDirectory, "Audio", "sample_french.mp3");
+			AzureOpenAIClient client = AzureOpenAIClientFactory.Create(_settings.Whisper);
+			IAudioTranscriptionService service = new AudioTranscriptionService(client, _settings.Whisper.DeploymentName);
+			string transcript = service.Transcribe(audioFilePath);
+			TestContext.Out.WriteLine($"Transcript: {transcript}");
+			AzureOpenAIClient chatClient = AzureOpenAIClientFactory.Create(_settings.ChatCompletion);
+			IChatService chatService = new ChatService(chatClient, _settings.ChatCompletion.DeploymentName);
+
+			List<ChatMessage> messages = new()
+			{
+				new SystemChatMessage("You are a multiple choice question (MCQ) generator. Generate 5 MCQs based on the transcript provided by the user. Also provide the correct answer for each question. MCQ should be in english only"),
+				new UserChatMessage(transcript),
+			};
+			ChatCompletionOptions options = new()
+			{
+				MaxOutputTokenCount = 13107,
+				Temperature = 1.0f,
+				TopP = 1.0f,
+				FrequencyPenalty = 0.0f,
+				PresencePenalty = 0.0f,
+			};
+			string response = chatService.CompleteChat(messages, options);
+			TestContext.Out.WriteLine($"MCQ: {response}");
+			Assert.That(transcript, Is.Not.Null.And.Not.Empty);
+		}
+
 	}
 }
