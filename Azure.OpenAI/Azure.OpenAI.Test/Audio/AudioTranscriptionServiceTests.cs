@@ -62,14 +62,14 @@ namespace Azure.OpenAI.Test
 			IAudioTranscriptionService service = new AudioTranscriptionService(client, _settings.Whisper.DeploymentName);
 			string transcript = service.Transcribe(audioFilePath);
 			TestContext.Out.WriteLine($"Transcript: {transcript}");
-			IChatService chatService = new ChatService(client, _settings.ChatCompletion.DeploymentName);
+			AzureOpenAIClient chatClient = AzureOpenAIClientFactory.Create(_settings.ChatCompletion);
+			IChatService chatService = new ChatService(chatClient, _settings.ChatCompletion.DeploymentName);
 
 			List<ChatMessage> messages = new()
 			{
 				new SystemChatMessage("You are a transcript summary generator. Summarize the transcript provided by the user in 3 bullet points."),
 				new UserChatMessage(transcript),
 			};
-
 			ChatCompletionOptions options = new()
 			{
 				MaxOutputTokenCount = 13107,
@@ -78,12 +78,8 @@ namespace Azure.OpenAI.Test
 				FrequencyPenalty = 0.0f,
 				PresencePenalty = 0.0f,
 			};
-
 			string response = chatService.CompleteChat(messages, options);
 			TestContext.Out.WriteLine($"Summary: {response}");
-
-
-
 			Assert.That(transcript, Is.Not.Null.And.Not.Empty);
 		}
 	}
