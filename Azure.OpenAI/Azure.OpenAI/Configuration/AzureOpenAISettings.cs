@@ -12,6 +12,8 @@ namespace Azure.OpenAI.Configuration
 		public AzureOpenAIResourceSettings ChatCompletion { get; set; } = new();
 
 		public AzureOpenAIResourceSettings Embedding { get; set; } = new();
+
+		public AzureOpenAIResourceSettings Whisper { get; set; } = new();
 	}
 
 	/// <summary>
