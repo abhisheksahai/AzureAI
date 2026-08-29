@@ -1,6 +1,8 @@
 using Azure.AI.OpenAI;
 using Azure.OpenAI.Audio;
+using Azure.OpenAI.Chat;
 using Azure.OpenAI.Configuration;
+using OpenAI.Chat;
 
 namespace Azure.OpenAI.Test
 {
@@ -58,10 +60,29 @@ namespace Azure.OpenAI.Test
 			string audioFilePath = Path.Combine(TestContext.CurrentContext.TestDirectory, "Audio", "aws_lambda.mp3");
 			AzureOpenAIClient client = AzureOpenAIClientFactory.Create(_settings.Whisper);
 			IAudioTranscriptionService service = new AudioTranscriptionService(client, _settings.Whisper.DeploymentName);
-
 			string transcript = service.Transcribe(audioFilePath);
-
 			TestContext.Out.WriteLine($"Transcript: {transcript}");
+			IChatService chatService = new ChatService(client, _settings.ChatCompletion.DeploymentName);
+
+			List<ChatMessage> messages = new()
+			{
+				new SystemChatMessage("You are a transcript summary generator. Summarize the transcript provided by the user in 3 bullet points."),
+				new UserChatMessage(transcript),
+			};
+
+			ChatCompletionOptions options = new()
+			{
+				MaxOutputTokenCount = 13107,
+				Temperature = 1.0f,
+				TopP = 1.0f,
+				FrequencyPenalty = 0.0f,
+				PresencePenalty = 0.0f,
+			};
+
+			string response = chatService.CompleteChat(messages, options);
+			TestContext.Out.WriteLine($"Summary: {response}");
+
+
 
 			Assert.That(transcript, Is.Not.Null.And.Not.Empty);
 		}
