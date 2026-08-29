@@ -78,7 +78,7 @@ namespace Azure.OpenAI.Test
 			IEmbeddingService service = new EmbeddingService(client, _settings.Embedding.DeploymentName);
 
 			const string firstText = "Hot";
-			const string secondText = "Warm";
+			const string secondText = "Hot";
 
 			IReadOnlyList<ReadOnlyMemory<float>> embeddings =
 				service.GenerateEmbeddings(new[] { firstText, secondText });
@@ -91,5 +91,22 @@ namespace Azure.OpenAI.Test
 
 			Assert.That(similarity, Is.InRange(-1.0, 1.0));
 		}
+
+
+		[Test]
+		[TestCase("This study explores groundbreaking advancements in renewable energy technologies, focusing on solar and wind power's efficiency improvements. By analyzing recent developments, we highlight the potential for these technologies to significantly reduce global dependency on fossil fuels, thereby mitigating climate change impacts.", ExpectedResult = false)]
+		[TestCase("Artificial Intelligence (AI) holds transformative potential for environmental protection, offering tools for better predicting climate change patterns and optimizing resource use. This paper examines AI applications in monitoring environmental degradation and managing natural resources more efficiently, presenting a case for integrating AI strategies into conservation efforts.", ExpectedResult = true)]
+		[TestCase("Marine biodiversity faces significant threats from climate change, with rising temperatures and acidification leading to coral bleaching and loss of habitat. This research analyzes the consequences of these changes on marine ecosystems and emphasizes the urgency of adopting conservation strategies to protect marine life.", ExpectedResult = false)]
+		public bool PlagiarismDetectionTest(string inputText)
+		{
+			string suspectedPlagiarizedText = "Recent advancements in solar and wind energy technologies have shown promising potential to lessen the world's reliance on non-renewable energy sources, thus playing a crucial role in combating climate change. Furthermore, the utilization of Artificial Intelligence offers unparalleled opportunities in the realm of environmental conservation, aiding in the accurate prediction of climatic trends and the efficient management of ecological resources. Additionally, the adverse effects of climate change on ocean life, particularly through the phenomenon of coral bleaching, underscore the need for immediate action to safeguard marine ecosystems.";
+			AzureOpenAIClient client = AzureOpenAIClientFactory.Create(_settings.Embedding);
+			IEmbeddingService service = new EmbeddingService(client, _settings.Embedding.DeploymentName);
+
+			IReadOnlyList<ReadOnlyMemory<float>> embeddings = service.GenerateEmbeddings(new[] { inputText, suspectedPlagiarizedText });
+			double similarity = VectorMath.CosineSimilarity(embeddings[0], embeddings[1]);
+			return similarity > 0.9;
+		}
+
 	}
 }

@@ -30,6 +30,13 @@ namespace Azure.OpenAI.Embeddings
 			return embedding.ToFloats();
 		}
 
+
+		/// <summary>
+		/// Embedding are numnerical representations of text capturing semantic meaning. This method generates embeddings for a list of input texts.
+		/// </summary>
+		/// <param name="inputs"></param>
+		/// <returns></returns>
+		/// <exception cref="ArgumentException"></exception>
 		public IReadOnlyList<ReadOnlyMemory<float>> GenerateEmbeddings(IEnumerable<string> inputs)
 		{
 			ArgumentNullException.ThrowIfNull(inputs);
