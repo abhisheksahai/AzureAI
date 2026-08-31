@@ -14,6 +14,8 @@ namespace Azure.OpenAI.Configuration
 		public AzureOpenAIResourceSettings Embedding { get; set; } = new();
 
 		public AzureOpenAIResourceSettings Whisper { get; set; } = new();
+
+		public AzureOpenAIResourceSettings ImageGeneration { get; set; } = new();
 	}
 
 	/// <summary>
