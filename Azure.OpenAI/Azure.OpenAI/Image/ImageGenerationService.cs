@@ -26,10 +26,11 @@ namespace Azure.OpenAI.Image
 				throw new ArgumentException("Prompt is required.", nameof(prompt));
 			}
 
+			// Note: gpt-image-1 always returns base64-encoded image bytes and does not
+			// support the "response_format" parameter (only DALL-E 2/3 accept it).
 			ImageGenerationOptions options = new()
 			{
-				Size = GeneratedImageSize.W1024xH1024,
-				ResponseFormat = GeneratedImageFormat.Bytes
+				Size = GeneratedImageSize.W1024xH1024
 			};
 
 			GeneratedImage image = _imageClient.GenerateImage(prompt, options);
