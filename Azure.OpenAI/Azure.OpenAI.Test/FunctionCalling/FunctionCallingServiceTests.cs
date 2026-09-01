@@ -2,6 +2,7 @@ using System.Text.Json;
 using Azure.AI.OpenAI;
 using Azure.OpenAI.Configuration;
 using Azure.OpenAI.FunctionCalling;
+using Azure.OpenAI.Test.FunctionCalling;
 using OpenAI.Chat;
 
 namespace Azure.OpenAI.Test
@@ -40,23 +41,6 @@ namespace Azure.OpenAI.Test
 			IFunctionCallingService service =
 				new FunctionCallingService(client, _settings.FunctionCalling.DeploymentName);
 
-			ChatTool getWeatherTool = ChatTool.CreateFunctionTool(
-				functionName: "get_current_weather",
-				functionDescription: "Get the current weather for a given city.",
-				functionParameters: BinaryData.FromString(
-					"""
-					{
-						"type": "object",
-						"properties": {
-							"city": {
-								"type": "string",
-								"description": "The city name, e.g. Paris"
-							}
-						},
-						"required": ["city"]
-					}
-					"""));
-
 			List<ChatMessage> messages = new()
 			{
 				new SystemChatMessage("You are a helpful assistant that can look up the weather."),
@@ -67,7 +51,7 @@ namespace Azure.OpenAI.Test
 
 			string answer = service.CompleteWithTools(
 				messages,
-				new[] { getWeatherTool },
+				ChatToolCatalog.All,
 				toolInvoker: (functionName, argumentsJson) =>
 				{
 					toolWasCalled = true;
@@ -99,23 +83,6 @@ namespace Azure.OpenAI.Test
 			IFunctionCallingService service =
 				new FunctionCallingService(client, _settings.FunctionCalling.DeploymentName);
 
-			ChatTool getStockPriceTool = ChatTool.CreateFunctionTool(
-				functionName: "get_stock_price",
-				functionDescription: "Get the current stock price for the given symbol.",
-				functionParameters: BinaryData.FromString(
-					"""
-					{
-						"type": "object",
-						"properties": {
-							"symbol": {
-								"type": "string",
-								"description": "The ticker symbol, e.g. AAPL"
-							}
-						},
-						"required": ["symbol"]
-					}
-					"""));
-
 			List<ChatMessage> messages = new()
 			{
 				new SystemChatMessage("You are a financial assistant. You know company ticker symbols, "
@@ -128,7 +95,7 @@ namespace Azure.OpenAI.Test
 
 			string answer = service.CompleteWithTools(
 				messages,
-				new[] { getStockPriceTool },
+				ChatToolCatalog.All,
 				toolInvoker: (functionName, argumentsJson) =>
 				{
 					toolWasCalled = true;
