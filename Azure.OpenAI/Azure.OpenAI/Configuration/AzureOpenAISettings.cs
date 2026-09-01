@@ -16,6 +16,8 @@ namespace Azure.OpenAI.Configuration
 		public AzureOpenAIResourceSettings Whisper { get; set; } = new();
 
 		public AzureOpenAIResourceSettings ImageGeneration { get; set; } = new();
+
+		public AzureOpenAIResourceSettings FunctionCalling { get; set; } = new();
 	}
 
 	/// <summary>
