@@ -139,9 +139,8 @@ namespace Azure.OpenAI.Test
 					using JsonDocument args = JsonDocument.Parse(argumentsJson);
 					requestedSymbol = args.RootElement.GetProperty("symbol").GetString();
 
-					// Dummy stock-price function - the model supplies the symbol,
-					// this just returns a fixed dummy price for whatever symbol was passed.
-					return JsonSerializer.Serialize(new { price = "1000" });
+					// The model supplies the symbol; the dummy function returns the price.
+					return GetStockPrice(requestedSymbol!);
 				});
 
 			TestContext.Out.WriteLine($"Final answer: {answer}");
@@ -154,6 +153,15 @@ namespace Azure.OpenAI.Test
 				Assert.That(requestedSymbol, Is.Not.Null.And.Not.Empty, "The model should supply a ticker symbol.");
 				Assert.That(normalizedAnswer, Does.Contain("1000"));
 			});
+		}
+
+		/// <summary>
+		/// Dummy stock-price function (mirrors the reference get_stock_price).
+		/// The symbol is supplied by the model; this returns a fixed dummy price.
+		/// </summary>
+		private static string GetStockPrice(string symbol)
+		{
+			return JsonSerializer.Serialize(new { symbol, price = "1000" });
 		}
 	}
 }
