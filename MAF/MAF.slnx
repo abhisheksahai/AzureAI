@@ -1,3 +1,4 @@
 <Solution>
+  <Project Path="MAF.BasicAgentApp/MAF.BasicAgentApp.csproj" Id="aeb58d99-f127-4362-b86c-4ecb6262265b" />
   <Project Path="MAF.Console/MAF.Console.csproj" />
 </Solution>
