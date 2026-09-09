@@ -1,5 +1,6 @@
 <Solution>
   <Project Path="MAF.BasicAgentApp/MAF.BasicAgentApp.csproj" Id="aeb58d99-f127-4362-b86c-4ecb6262265b" />
   <Project Path="MAF.Console/MAF.Console.csproj" />
+  <Project Path="MAF.MultiTurn/MAF.MultiTurn.csproj" Id="f49e185a-de35-4cec-9dae-3e6258a3d617" />
   <Project Path="MAF.Streaming/MAF.Streaming.csproj" Id="0133fac9-296e-4dda-9b5e-105e4348ea38" />
 </Solution>

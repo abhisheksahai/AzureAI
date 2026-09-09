@@ -12,7 +12,7 @@ AIAgent supportAgent = chatClient.AsAIAgent(name: "NetworkSupport", instructions
 
 Console.WriteLine($"Agent {supportAgent.Name} is online");
 
-string useQuery = "We have enabled WAF in azure frontdoor/appservice one of the post api is getting blocked as its payload is json which has complex object, could you help";
+string useQuery = "We have enabled WAF in azure frontdoor/appservice few of the apis are not working from MAC machine but it works with windows, could you please help";
 
 await foreach (AgentResponseUpdate update in supportAgent.RunStreamingAsync(useQuery))
 {
