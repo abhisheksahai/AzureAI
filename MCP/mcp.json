@@ -1,0 +1,15 @@
+{
+	"servers": {
+		"io.snyk/mcp": {
+			"type": "stdio",
+			"command": "snyk",
+			"args": [
+				"mcp",
+				"-t",
+				"stdio"
+			],
+			"gallery": "https://api.mcp.github.com",
+			"version": "1.1304.2"
+		}
+	}
+}
