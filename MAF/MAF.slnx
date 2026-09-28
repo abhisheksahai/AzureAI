@@ -4,6 +4,7 @@
   <Project Path="MAF.CustomContextProvider/MAF.CustomContextProvider.csproj" Id="84ed12f3-5fc8-4520-b46a-1c333693d9c5" />
   <Project Path="MAF.FuntionCall/MAF.FuntionCall.csproj" Id="a00b117d-081e-4cb1-9d3d-3a0d5369a37c" />
   <Project Path="MAF.HITL.ApproveRequiredFunction/MAF.HITL.ApproveRequiredFunction.csproj" Id="51ae46dd-4acc-405b-9e6f-9ebd398123c4" />
+  <Project Path="MAF.MockCosmosDatabase/MAF.MockCosmosDatabase.csproj" />
   <Project Path="MAF.MultiTurn/MAF.MultiTurn.csproj" Id="f49e185a-de35-4cec-9dae-3e6258a3d617" />
   <Project Path="MAF.Streaming/MAF.Streaming.csproj" Id="0133fac9-296e-4dda-9b5e-105e4348ea38" />
   <Project Path="MAF.StructuredOutput/MAF.StructuredOutput.csproj" Id="435339af-1e66-451c-a9e0-74fefc2d2b1e" />
