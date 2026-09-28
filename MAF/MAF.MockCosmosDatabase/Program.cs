@@ -5,7 +5,15 @@ using OpenAI.Chat;
 using System.Collections.Concurrent;
 using System.Text.Json;
 
+Console.WriteLine("Starting Stateless Agent Service...");
+var repository = new MockCosmosDatabaseRepository();
+var agentService = new StatelessAgentService(repository);
 
+string userId = "user123";
+string response1 = await agentService.HandleUserMessageAsync(userId, "Hello! I am planning for a trip to Bhimashankar jyotirlinga");
+Console.WriteLine($"Response 1: {response1}");
+string response2 = await agentService.HandleUserMessageAsync(userId, "Do you remember my previous message? Can you suggest some good hotels nearby?");
+Console.WriteLine($"Response 2: {response2}");
 
 
 public class StatelessAgentService
@@ -17,6 +25,7 @@ public class StatelessAgentService
 	private ISessionRepository _sessionRepository;
 	public StatelessAgentService(ISessionRepository sessionRepository)
 	{
+		_sessionRepository = sessionRepository;
 		aIAgent = new AzureOpenAIClient(new Uri(endPoint), new AzureCliCredential())
 			.GetChatClient(model)
 			.AsAIAgent(name: "PersistenceGuide", instructions: "you are a friendly assistant. keep your answers brief. You remember details over long period of time");
@@ -45,7 +54,6 @@ public class StatelessAgentService
 		string updatedSessionJson = JsonSerializer.Serialize(jsonElement);
 		await _sessionRepository.SaveSessionJsonAsync(sessionId, updatedSessionJson);
 		return response.Text;
-
 	}
 
 }
