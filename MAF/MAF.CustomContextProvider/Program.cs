@@ -55,6 +55,13 @@ internal sealed class EmployeeContextProvider : AIContextProvider
 
 	public EmployeeProfile GetProfile(AgentSession session) => _sessionState.GetOrInitializeState(session);
 
+
+	/// <summary>
+	/// Phase 1: Pre-Invocation: Provide AI context based on the current session state. If the employee name or department is not available, instruct the AI to ask the user for that information.
+	/// </summary>
+	/// <param name="invokingContext"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
 	protected override ValueTask<AIContext> ProvideAIContextAsync(InvokingContext invokingContext, CancellationToken cancellationToken = default)
 	{
 		var profile = _sessionState.GetOrInitializeState(invokingContext.Session);
@@ -66,6 +73,13 @@ internal sealed class EmployeeContextProvider : AIContextProvider
 		return new ValueTask<AIContext>(new AIContext() { Instructions = instruction.ToString() });
 	}
 
+
+	/// <summary>
+	/// Phase 2: Post-Invocation: Store the employee name and department in the session state if they are not already present. This is done by extracting the information from the user's response using the AI model.
+	/// </summary>
+	/// <param name="invokedContext"></param>
+	/// <param name="cancellationToken"></param>
+	/// <returns></returns>
 	protected override async ValueTask StoreAIContextAsync(InvokedContext invokedContext, CancellationToken cancellationToken = default)
 	{
 		var profile = _sessionState.GetOrInitializeState(invokedContext.Session);
