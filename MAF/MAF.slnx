@@ -2,6 +2,7 @@
   <Project Path="MAF.BasicAgentApp/MAF.BasicAgentApp.csproj" Id="aeb58d99-f127-4362-b86c-4ecb6262265b" />
   <Project Path="MAF.Console/MAF.Console.csproj" />
   <Project Path="MAF.CustomContextProvider/MAF.CustomContextProvider.csproj" Id="84ed12f3-5fc8-4520-b46a-1c333693d9c5" />
+  <Project Path="MAF.FirstWorkFlow/MAF.FirstWorkFlow.csproj" Id="4907daf5-5ad0-43f8-9989-11db8b4640d7" />
   <Project Path="MAF.FuntionCall/MAF.FuntionCall.csproj" Id="a00b117d-081e-4cb1-9d3d-3a0d5369a37c" />
   <Project Path="MAF.HITL.ApproveRequiredFunction/MAF.HITL.ApproveRequiredFunction.csproj" Id="51ae46dd-4acc-405b-9e6f-9ebd398123c4" />
   <Project Path="MAF.MockCosmosDatabase/MAF.MockCosmosDatabase.csproj" />
