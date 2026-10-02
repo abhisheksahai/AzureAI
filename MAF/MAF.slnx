@@ -9,4 +9,5 @@
   <Project Path="MAF.MultiTurn/MAF.MultiTurn.csproj" Id="f49e185a-de35-4cec-9dae-3e6258a3d617" />
   <Project Path="MAF.Streaming/MAF.Streaming.csproj" Id="0133fac9-296e-4dda-9b5e-105e4348ea38" />
   <Project Path="MAF.StructuredOutput/MAF.StructuredOutput.csproj" Id="435339af-1e66-451c-a9e0-74fefc2d2b1e" />
+  <Project Path="MAF.WorkFlow/MAF.WorkFlow.csproj" Id="8e5da72f-6ff5-4836-9a51-6aff94079e62" />
 </Solution>
