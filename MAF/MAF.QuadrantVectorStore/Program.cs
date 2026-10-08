@@ -14,7 +14,7 @@ IChatClient chatClient = new AzureOpenAIClient(new Uri(endPoint), new AzureCliCr
 
 var embeddingClient = new AzureOpenAIClient(new Uri(endPoint), new AzureCliCredential()).GetEmbeddingClient("text-embedding-3-small").AsIEmbeddingGenerator();
 
-var quadrantClient = new QdrantClient("localhost", 6634);
+var quadrantClient = new QdrantClient("localhost", 6334);
 var vectorStore = new QdrantVectorStore(quadrantClient, ownsClient: true);
 
 var adrCollection = vectorStore.GetCollection<Guid, ArchitectureDecision>("enterprise_adrs");
