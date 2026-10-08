@@ -10,7 +10,9 @@
   <ItemGroup>
     <PackageReference Include="Azure.AI.OpenAI" Version="2.1.0" />
     <PackageReference Include="Azure.Identity" Version="1.21.0" />
+    <PackageReference Include="CommunityToolkit.VectorData.Qdrant" Version="1.0.0" />
     <PackageReference Include="Microsoft.Agents.AI.OpenAI" Version="1.24.0" />
+    <PackageReference Include="Microsoft.Extensions.AI.OpenAI" Version="10.10.1" />
   </ItemGroup>
 
 </Project>
